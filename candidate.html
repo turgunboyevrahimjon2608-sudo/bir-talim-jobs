@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Candidate Portal | Bir Ta'lim Jobs</title>
+      <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+      <header class="navbar">
+          <div class="logo">Bir ta'lim <span>Jobs</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="candidate.html" class="nav-link active">Candidate Portal</a></li>
+              <li><a href="client.html" class="nav-link">Client Portal</a></li>
+              <li><a href="recruiter.html" class="nav-link">Recruiter Dashboard</a></li>
+          </ul>
+      </header>
+      <div class="container">
+          <div class="dashboard-grid">
+              <aside class="sidebar">
+                  <ul class="sidebar-menu">
+                      <li><a href="#" class="sidebar-link active" onclick="switchTab('jobs')">Available Vacancies</a></li>
+                      <li><a href="#" class="sidebar-link" onclick="switchTab('apply')">Submit Resume/CV</a></li>
+                      <li><a href="#" class="sidebar-link" onclick="switchTab('resources')">Career Resources</a></li>
+                  </ul>
+              </aside>
+              <main class="main-panel">
+                  <div id="tab-jobs" class="tab-content">
+                      <div class="panel-header">
+                          <h2 class="panel-title">Curated Agency Placements</h2>
+                        <span style="font-weight: 600; color: var(--accent-color);">Direct Vetting Roles</span>
+                    </div>
+                    <p style="margin-bottom: 2rem; color: var(--text-light); font-size: 0.9rem;">
+                        The following jobs are managed directly by Bir Ta'lim Jobs recruiters. When you apply, an agency consultant will reach out to schedule your pre-screening interview.
+                      </p>
+                      <div class="card-grid">
+                          <div class="card">
+                              <div class="card-header">
+                                  <div>
+                                      <h3 class="card-title">English Department Head</h3>
+                                    <span class="card-subtitle">Bir Ta'lim Academy</span>
+                                  </div>
+                              </div>
+                              <div class="card-body">
+                                  Required to lead our IELTS training team, optimize student curriculums, and conduct advanced seminars.
+                                  <br><br>
+                                  <strong>Salary:</strong> 15,000,000 - 20,000,000 UZS
+                              </div>
+                              <div class="card-footer">
+                                  <span class="badge badge-approved" style="background-color:#eff6ff; color:#2563eb;">Full-Time</span>
+                                  <button class="btn btn-primary" onclick="quickApply('English Department Head', 'Bir Ta\'lim Academy')">Apply Now</button>
+                              </div>
+                          </div>
+                          <div class="card">
+                              <div class="card-header">
+                                  <div>
+                                      <h3 class="card-title">Senior React Developer</h3>
+                                    <span class="card-subtitle">Anor Tech Partner</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                Seeking a front-end specialist to build next-generation financial panels. Focus on performance and clean state management.
+                                  <br><br>
+                                  <strong>Salary:</strong> $2,500 - $3,200 / mo
+                              </div>
+                              <div class="card-footer">
+                                  <span class="badge badge-approved" style="background-color:#fef2f2; color:#ef4444;">Remote</span>
+                                  <button class="btn btn-primary" onclick="quickApply('Senior React Developer', 'Anor Tech Partner')">Apply Now</button>
+                              </div>
+                          </div>
+                          <div class="card">
+                              <div class="card-header">
+                                  <div>
+                                      <h3 class="card-title">Executive HR Specialist</h3>
+                                      <span class="card-subtitle">Global Trading Corp</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                Responsible for corporate headhunting, onboarding, and optimizing workplace culture in a multi-national environment.
+                                  <br><br>
+                                  <strong>Salary:</strong> 12,000,000 UZS
+                              </div>
+                              <div class="card-footer">
+                                  <span class="badge badge-approved" style="background-color:#eff6ff; color:#2563eb;">Full-Time</span>
+                                  <button class="btn btn-primary" onclick="quickApply('Executive HR Specialist', 'Global Trading Corp')">Apply Now</button>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div id="tab-apply" class="tab-content" style="display: none;">
+                      <div class="panel-header">
+                          <h2 class="panel-title">Submit Your Application</h2>
+                    </div>
+                    <form id="candidate-application-form" onsubmit="submitCandidateCV(event)">
+                        <div class="form-group">
+                            <label for="cand-name">Full Name</label>
+                              <input type="text" id="cand-name" required placeholder="Aliyor Karimov">
+                          </div>
+                          <div class="form-group">
+                              <label for="cand-email">Email Address</label>
+                              <input type="email" id="cand-email" required placeholder="aliyor@example.com">
+                          </div>
+                          <div class="form-group">
+                              <label for="cand-phone">Phone Number</label>
+                              <input type="tel" id="cand-phone" required placeholder="+998 90 123 45 67">
+                          </div>
+                          <div class="form-group">
+                              <label for="cand-job">Desired Position</label>
+                              <select id="cand-job" required>
+                                  <option value="">Select a vacancy...</option>
+                                  <option value="English Department Head">English Department Head</option>
+                                <option value="Senior React Developer">Senior React Developer</option>
+                                <option value="Executive HR Specialist">Executive HR Specialist</option>
+                                <option value="General Executive Application">General Application (No Specific Vacancy)</option>
+                            </select>
+                                                      </div>
+                                                      <div class="form-group">
+                                                          <label for="cand-skills">Key Skills (Comma separated)</label>
+                            <input type="text" id="cand-skills" required placeholder="React, Node.js, Redux, English C1">
+                                                      </div>
+                                                      <div class="form-group">
+                                                          <label for="cand-bio">Brief Introduction / Covering Letter</label>
+                            <textarea id="cand-bio" rows="4" placeholder="Briefly describe your career achievements and why you fit the role..."></textarea>
+                                                      </div>
+                                                      <button type="submit" class="btn btn-primary" style="width: 100%;">Submit My Resume</button>
+                                                  </form>
+                                              </div>
+                                              <div id="tab-resources" class="tab-content" style="display: none;">
+                                                  <div class="panel-header">
+                                                      <h2 class="panel-title">Candidate Learning Resources</h2>
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        <div class="card" style="border-left: 4px solid var(--accent-color);">
+                            <h3 class="card-title">How to Structure an Executive Resume</h3>
+                                                          <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 0.5rem;">Learn how to highlight your impact, quantitative stats, and structural layout to pass ATS pre-screening tools and grab the recruiter's eye.</p>
+                                                      </div>
+                                                      <div class="card" style="border-left: 4px solid var(--accent-color);">
+                                                          <h3 class="card-title">Ace Your Interview with the STAR Method</h3>
+                                                          <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 0.5rem;">Situation, Task, Action, and Result. Master this simple formula to give articulate and memorable answers during your partner interviews.</p>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </main>
+                                      </div>
+                                  </div>
+                                  <footer>
+                                      <p>&copy; 2026 Bir Ta'lim Jobs. Model Option 1 - Agency-First Portal.</p>
+                                  </footer>
+                                  <script src="script.js"></script>
+                              </body>
+                              </html>
